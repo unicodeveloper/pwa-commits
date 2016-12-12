@@ -1,4 +1,4 @@
-var cacheName = 'pwa-commits-v2';
+var cacheName = 'pwa-commits-v3';
 
 var filesToCache = [
     './',
@@ -54,6 +54,8 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
 
     console.log('Service Worker: Fetch', event.request.url);
+
+    console.log("Url", event.request.url);
 
     event.respondWith(
         caches.match(event.request).then(function(response) {

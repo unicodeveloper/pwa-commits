@@ -1,12 +1,12 @@
 {
   "name": "PWA - Commits",
   "short_name": "PWA",
-  "description": "Demo for progressive web app with push notifications, background sync etc.",
+  "description": "Progressive Web Apps for Resources I like",
   "start_url": "./index.html?utm=homescreen",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f5f5f5",
-  "theme_color": "#f5f5f5",
+  "background_color": "#4c4849",
+  "theme_color": "#4c4849",
   "icons": [
     {
       "src": "./images/192x192.png",
@@ -45,6 +45,5 @@
     "github": "https://github.com/unicodeveloper",
     "source-repo": "https://github.com/unicodeveloper/pwa-commits"
   },
-  "gcm_sender_id": "571712848651",
-  "gcm_user_visible_only": true
+  "gcm_sender_id": "571712848651"
 }

@@ -55,6 +55,7 @@
       .then(function (subscription) {
         toast('Subscribed successfully.');
         console.info('Push notification subscribed.');
+        console.log(subscription);
         saveSubscriptionID(subscription);
         changePushStatus(true);
       })
@@ -83,6 +84,7 @@
           .then(function () {
             toast('Unsubscribed successfully.');
             console.info('Push notification unsubscribed.');
+            console.log(subscription);
             deleteSubscriptionID(subscription);
             changePushStatus(false);
           })
@@ -147,31 +149,6 @@
       }
     });
   }
-
-  // //Form data with info to send to server
-  // function sendPushNotification() {
-  //   navigator.serviceWorker.ready
-  //     .then(function(registration) {
-  //       //Get `push subscription`
-  //       registration.pushManager.getSubscription().then(function (subscription) {
-
-  //         var subscription_id = subscription.endpoint.split('gcm/send/')[1];
-
-  //         //Send `push notification` - source for below url `server.js`
-  //         fetch('http://localhost:3333/api/notify', {
-  //           method: 'post',
-  //           headers: {
-  //             'Accept': 'application/json',
-  //             'Content-Type': 'application/json'
-  //           },
-  //           body: JSON.stringify({ title : })
-  //         })
-  //         .then(function(response) {
-  //           return response.json();
-  //         })
-  //       })
-  //     })
-  // }
 
   isPushSupported(); //Check for push notification support
 })(window);

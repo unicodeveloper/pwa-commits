@@ -66,10 +66,7 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-/*
-  PUSH EVENT: triggered everytime, when a push notification is received.
-*/
-//Adding `push` event listener
+// triggered everytime, when a push notification is received.
 self.addEventListener('push', function(event) {
 
   console.info('Event: Push');
@@ -88,33 +85,16 @@ self.addEventListener('push', function(event) {
 });
 
 
-//Adding `notification` click event listener
 self.addEventListener('notificationclick', function(event) {
 
-  var url = './latest.html?notification=true';
+  var url = './latest.html';
 
   event.notification.close(); //Close the notification
 
-  //To open the app after clicking notification
+  // Open the app and navigate to latest.html after clicking the notification
   event.waitUntil(
-    clients.matchAll({ type: 'window' }).then(function(clients) {
-      for (var i = 0; i < clients.length; i++) {
-        var client = clients[i];
-
-        //If site is opened, focus to the site
-        if (client.url === url && 'focus' in client) {
-          return client.focus();
-        }
-      }
-
-      //If site is cannot be opened, open in new window
-      if (clients.openWindow) {
-        return clients.openWindow('/');
-      }
-    })
-    .catch(function (error) {
-      console.error(error);
-    })
+    clients.openWindow(url)
   );
+
 });
 

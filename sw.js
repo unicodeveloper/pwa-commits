@@ -1,8 +1,9 @@
-var cacheName = 'pwa-commits-v2';
+var cacheName = 'pwa-commits-v3';
 
 var filesToCache = [
     './',
     './css/style.css',
+    './images/books.png',
     './images/Home.svg',
     './images/ic_refresh_white_24px.svg',
     './images/profile.png',
@@ -55,9 +56,45 @@ self.addEventListener('fetch', function(event) {
 
     console.log('Service Worker: Fetch', event.request.url);
 
+    console.log("Url", event.request.url);
+
     event.respondWith(
         caches.match(event.request).then(function(response) {
             return response || fetch(event.request);
         })
     );
 });
+
+
+// triggered everytime, when a push notification is received.
+self.addEventListener('push', function(event) {
+
+  console.info('Event: Push');
+
+  var title = 'New commit on Github Repo: RIL';
+
+  var body = {
+    'body': 'Click to see the latest commit',
+    'tag': 'pwa',
+    'icon': './images/48x48.png'
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, body)
+  );
+});
+
+
+self.addEventListener('notificationclick', function(event) {
+
+  var url = './latest.html';
+
+  event.notification.close(); //Close the notification
+
+  // Open the app and navigate to latest.html after clicking the notification
+  event.waitUntil(
+    clients.openWindow(url)
+  );
+
+});
+

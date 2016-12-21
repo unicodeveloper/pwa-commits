@@ -1,0 +1,49 @@
+{
+  "name": "PWA - Commits",
+  "short_name": "PWA",
+  "description": "Progressive Web Apps for Resources I like",
+  "start_url": "./index.html?utm=homescreen",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#4c4849",
+  "theme_color": "#4c4849",
+  "icons": [
+    {
+      "src": "./images/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./images/168x168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "./images/144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./images/96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./images/72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./images/48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }
+  ],
+  "author": {
+    "name": "Prosper Otemuyiwa",
+    "website": "https://twitter.com/unicodeveloper",
+    "github": "https://github.com/unicodeveloper",
+    "source-repo": "https://github.com/unicodeveloper/pwa-commits"
+  },
+  "gcm_sender_id": "571712848651"
+}

@@ -144,6 +144,9 @@
 
   if (storageAvailable('localStorage')) {
     if (localStorage.getItem('commitData') === null) {
+      /* The user is using the app for the first time, or the user has not
+       * saved any commit data, so show the user some fake data.
+       */
       fetchCommits();
       console.log("Fetch from API");
     } else {

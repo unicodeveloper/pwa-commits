@@ -3,6 +3,7 @@ var cacheName = 'pwa-commits-v3';
 var filesToCache = [
     './',
     './css/style.css',
+    './images/books.png',
     './images/Home.svg',
     './images/ic_refresh_white_24px.svg',
     './images/profile.png',
@@ -63,3 +64,57 @@ self.addEventListener('fetch', function(event) {
         })
     );
 });
+
+
+/*
+  PUSH EVENT: triggered everytime, when a push notification is received.
+*/
+//Adding `push` event listener
+self.addEventListener('push', function(event) {
+
+  console.info('Event: Push');
+
+  var title = 'New commit on Github Repo: RIL';
+
+  var body = {
+    'body': 'Click to see the latest commit',
+    'tag': 'pwa',
+    'icon': './images/48x48.png'
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, body)
+  );
+});
+
+
+//Adding `notification` click event listener
+self.addEventListener('notificationclick', function(event) {
+
+  var url = './latest.html?notification=true';
+
+  event.notification.close(); //Close the notification
+
+  //To open the app after clicking notification
+  event.waitUntil(
+    clients.matchAll({ type: 'window' }).then(function(clients) {
+      for (var i = 0; i < clients.length; i++) {
+        var client = clients[i];
+
+        //If site is opened, focus to the site
+        if (client.url === url && 'focus' in client) {
+          return client.focus();
+        }
+      }
+
+      //If site is cannot be opened, open in new window
+      if (clients.openWindow) {
+        return clients.openWindow('/');
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    })
+  );
+});
+

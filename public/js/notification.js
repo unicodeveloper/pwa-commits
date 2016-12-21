@@ -128,7 +128,7 @@
 
     console.log("Subscription ID", subscription_id);
 
-    fetch('http://localhost:3333/api/users', {
+    fetch('https://rilapi.herokuapp.com/api/users', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -141,7 +141,7 @@
   function deleteSubscriptionID(subscription) {
     var subscription_id = subscription.endpoint.split('gcm/send/')[1];
 
-    fetch('http://localhost:3333/api/user/' + subscription_id, {
+    fetch('https://rilapi.herokuapp.com/api/user/' + subscription_id, {
       method: 'delete',
       headers: {
         'Accept': 'application/json',

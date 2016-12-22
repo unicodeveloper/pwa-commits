@@ -94,6 +94,6 @@
     }   
   }
   else {
-    toast('We cant cache your app data yet..');
+    toast("We can't cache your app data yet..");
   }
 })();

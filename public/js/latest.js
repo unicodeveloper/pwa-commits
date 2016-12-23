@@ -6,6 +6,14 @@
   };
 
   var container = document.querySelector('.container');
+
+  document.getElementById('butRefresh').addEventListener('click', function() {
+    // Get fresh, updated data from Github whenever you are clicked
+    toast('Fetching latest data...');
+    fetchCommits();
+    console.log("Getting fresh data!!!");
+  });
+
   var commitContainer = ['.first', '.second', '.third', '.fourth', '.fifth'];
   var posData = ['first', 'second', 'third', 'fourth', 'fifth'];
 
@@ -26,6 +34,8 @@
   // Get Commit Data from Github API
   function fetchCommits() {
     var url = 'https://api.github.com/repos/unicodeveloper/resources-i-like/commits';
+
+    app.spinner.setAttribute('visible', true); 
 
     fetch(url)
     .then(function(fetchResponse){ 

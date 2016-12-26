@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/unicodeveloper-approved-brightgreen.svg)
 
-This is the progressive web app that accompanies the series of `Introduction to Progressive Web Apps` on [auth0's blog](https://auth0.com/blog). 
+This is the progressive web app that accompanies the series of `Introduction to Progressive Web Apps` Article on [auth0's blog](https://auth0.com/blog). 
 
 ## Installation
 
